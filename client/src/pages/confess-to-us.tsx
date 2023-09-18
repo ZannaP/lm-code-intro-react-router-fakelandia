@@ -1,0 +1,1 @@
+export const ConfessToUs : React.FC = () => <>Confess To Us</>;

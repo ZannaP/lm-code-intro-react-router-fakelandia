@@ -5,7 +5,7 @@ import {Router} from './router/router'
 
 function App() {
   const [count, setCount] = useState(0)
-  const Home : React.FC = () => <>Home!</>;
+  
 
   return (
     
