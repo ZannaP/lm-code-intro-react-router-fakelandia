@@ -1,15 +1,17 @@
+@import "reset.css";
+@import "vars.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "reset.css";
-@import "vars.css";
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--color-alert);
   background-color: #242424;
 
   font-synthesis: none;
@@ -30,7 +32,7 @@ a:hover {
 }
 
 body {
-  @apply w-full;
+  @apply w-full border-8;
   background-color: var(--color-surface);
   min-height: 100vh;
 }
@@ -79,4 +81,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-li {@apply mx-auto bg-amber-300}

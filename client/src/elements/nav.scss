@@ -1,6 +1,9 @@
 nav {
+  ul {
     @apply mx-auto;
-    li {
-        @apply inline-block;
-    }
+  }
+
+  li {
+    @apply inline-block p-6;
+  }
 }
