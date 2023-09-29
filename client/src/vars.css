@@ -1,0 +1,36 @@
+:root {
+    --color-surface: #ffffff;
+    --color-background: rgb(244, 244, 244);
+    --color-on-surface: rgba(0, 0, 0, 0.87);
+    --color-primary: rgb(139, 36, 154);
+    --color-on-primary: rgba(255, 255, 255, 0.97);
+    --color-on-primary-20: rgba(255, 255, 255, 0.67);
+    --color-secondary: rgb(46, 55, 61);
+    --color-on-secondary: rgba(255, 255, 255, 0.97);
+    --color-link: #6b97cf;
+    --color-link-hover: #85afe5;
+    --color-alert: #B00020;
+    --color-alert-darker: #8B0020;
+
+    --heading-h1-size: clamp(3rem, 2.129rem + 3.871vw, 6rem);
+    --heading-h2-size: clamp(2.5rem, 1.7742rem + 3.2258vw, 5rem);
+    --heading-h3-size: clamp(2rem, 1.4194rem + 2.5806vw, 4rem);
+    --heading-h4-size: clamp(1.225rem, 1.1125rem + 0.4666666666666vw, 1.4625rem);
+
+    --heading-h1-leading: 1.2333;
+    --heading-h2-leading: 1.125;
+    --heading-h3-leading: 1.1333;
+    --heading-h4-leading: 1.2333;
+}
+/* The same class but this time, it holds the variable values instead */
+.dark-theme:root {
+    --color-surface: #212121;
+    --color-background: #121212;
+    --color-link: #7da3cf;
+    --color-alert: #CF6679;
+    --color-alert-darker: #B81E3A;
+    --color-on-primary: #FFFFFF;
+    --color-on-secondary: #FFFFFF;
+    --color-on-surface: rgba(255, 255, 255, 0.87);
+    --color-on-backround: rgba(255, 255, 255, 0.87);
+}

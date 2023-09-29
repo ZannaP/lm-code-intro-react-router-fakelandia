@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import("./nav.scss");
 const Nav:React.FC = () => (
     <nav>
         <ul>

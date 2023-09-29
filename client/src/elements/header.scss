@@ -1,3 +1,5 @@
 header {
-  @apply w-full p-6 bg-amber-300;
+  @apply w-full p-8 bg-amber-300;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }
