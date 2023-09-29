@@ -5,5 +5,9 @@ nav {
 
   li {
     @apply inline-block p-6;
+
+    .active {
+      color: white;
+    }
   }
 }

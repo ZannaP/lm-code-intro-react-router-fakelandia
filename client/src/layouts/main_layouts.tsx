@@ -1,14 +1,16 @@
-import { Outlet } from "react-router-dom";
-import {Footer} from "../elements/footer.tsx";
-import {Header} from "../elements/header.tsx"
+import {Outlet} from "react-router-dom";
+import {Footer} from "../elements/footer";
+import {Header} from "../elements/header"
 
 const MainLayout: React.FC = () => (
     <>
-        <Header />
-        <main>
-            <Outlet />
-        </main>
-        <Footer />
+        <div className={"w-full"}>
+            <Header/>
+            <main>
+                <Outlet/>
+            </main>
+        </div>
+        <Footer/>
     </>
 );
 export default MainLayout;
