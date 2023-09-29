@@ -1,9 +1,9 @@
-import {Routes, Route} from 'react-router-dom';
 import {Home} from '../pages/home';
 import {Misdemeanours} from '../pages/misdemeanours';
 import {ConfessToUs} from '../pages/confess-to-us';
 import {Page404} from '../pages/home copy';
 import MainLayout from "../layouts/main_layouts";
+import {Routes, Route} from "react-router-dom";
 
 const Router: React.FC = () => (
     <Routes>
