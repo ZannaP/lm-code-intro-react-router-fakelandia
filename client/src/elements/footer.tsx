@@ -1,5 +1,10 @@
 import "./footer.scss"
-import * as React from 'react'
-export const Footer = () => <footer>
-    <div className={"container"}><p>Ž</p></div>
-</footer>
+
+export const Footer = () =>
+    <footer>
+        <div className={"the-container"}>
+            <p className={"text-xs text-white"}>
+                Fakelandia 2023
+            </p>
+        </div>
+    </footer>
