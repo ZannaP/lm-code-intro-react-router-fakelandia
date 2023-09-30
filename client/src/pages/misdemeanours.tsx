@@ -3,7 +3,6 @@ import {Misdemeanour} from "../types/misdemeanours.types";
 
 export const Misdemeanours = () => {
     const [misdemeanours, setMisdemeanours] = useState<Misdemeanour[]>([]);
-    const [randomImage, setRandomImage] = useState<string>('https://fastly.picsum.photos/id/690/150/100.jpg?hmac=CShVFo9KmPvqR4nAO1h1MmnPkS9oCZlx1xD4LiCqfBU')
     useEffect(() => {
         fetch("http://localhost:8080/api/misdemeanours/5")
             .then(response => response.json())
@@ -29,12 +28,11 @@ export const Misdemeanours = () => {
                         <div>{misdemeanour?.misdemeanour}</div>
                         <div>{misdemeanour?.date}</div>
                         <div>
-                            <img src={randomImageURL} alt={`${misdemeanour?.misdemeanour} punishment`} />
+                            <img src={randomImageURL} alt={`${misdemeanour?.misdemeanour} punishment`}/>
                         </div>
                     </div>
                 );
             })}
         </div>
     );
-
 }
