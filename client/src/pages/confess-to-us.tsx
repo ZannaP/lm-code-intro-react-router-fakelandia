@@ -1,3 +1,5 @@
+import ConfessForm from "../forms/confess-form";
+
 export const ConfessToUs: React.FC = () => {
     return (
         <>
@@ -10,6 +12,7 @@ export const ConfessToUs: React.FC = () => {
                     <p>However, if you're just having a hard day and need to vetn then you're welcome to contact us here
                         too. Up to you!</p>
                 </div>
+                <ConfessForm />
             </section>
         </>
     );
