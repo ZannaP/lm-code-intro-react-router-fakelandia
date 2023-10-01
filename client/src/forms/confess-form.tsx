@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import InputSubject from './input-subject';
-import ReasonDropdown from "./reason-dropdown.tsx"; // Import the InputSubject component
+import ReasonDropdown from "./reason-dropdown"; // Import the InputSubject component
 import ("./forms.scss");
 
 const ConfessForm: React.FC = () => {
@@ -28,6 +28,12 @@ const ConfessForm: React.FC = () => {
             setErrorInput('Subject cannot be empty');
         } else {
             console.log('Submitted:', inputValue);
+        }
+
+        if (selectValue.trim() === '') {
+            setErrorSelect('Please select a reason for contact');
+        } else {
+            console.log('Submitted:', selectValue);
         }
     };
 
