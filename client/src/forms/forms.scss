@@ -1,7 +1,7 @@
 label {
   @apply block mt-4;
 }
-input {
+input, select, textarea {
   @apply mt-2 p-2 border w-full rounded;
 }
 button {
