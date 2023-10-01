@@ -10,10 +10,10 @@ const ReasonDropdown: React.FC<ReasonDropdownProps> = ({reasons, selected, onCha
     return (
         <div>
             <label htmlFor="reasonSelect">Reason for contact:</label>
-            <select name="reasonSelect" id="reasonSelect" onChange={onChange}>
-                <option value="" disabled selected>Select one --</option>
+            <select name="reasonSelect" id="reasonSelect" value={selected} onChange={onChange}>
+                <option value="" disabled>Select one --</option>
                 {reasons.map((e: string) => (
-                    <option key={e} value={e} selected={e === selected}>
+                    <option key={e} value={e}>
                         {e}
                     </option>
                 ))}
