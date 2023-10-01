@@ -1,7 +1,7 @@
 import ("./forms.scss");
 interface InputSubjectProps {
     value: string;
-    onChange: React.ChangeEventHandler<HTMLInputElement>;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const InputSubject: React.FC<InputSubjectProps> = ({ value, onChange }) => {
     return (

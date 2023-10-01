@@ -2,11 +2,17 @@
     --color-background: rgb(244, 244, 244);
     --color-surface: #ffffff;
     --color-on-surface: rgba(0, 0, 0, 0.87);
+
     --color-primary: rgb(139, 36, 154);
     --color-on-primary: rgba(255, 255, 255, 0.97);
     --color-on-primary-20: rgba(255, 255, 255, 0.67);
+
     --color-secondary: rgb(46, 55, 61);
+    --color-secondary-20: rgb(46, 55, 61, 0.2);
+
     --color-on-secondary: rgba(255, 255, 255, 0.97);
+    --color-on-secondary-20: rgba(255, 255, 255, 0.57);
+
     --color-link: #6b97cf;
     --color-link-hover: #85afe5;
     --color-alert: #B00020;

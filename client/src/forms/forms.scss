@@ -4,9 +4,13 @@ label {
 input, select, textarea {
   @apply mt-2 p-2 border w-full rounded;
 }
-button {
+button[type=submit] {
   @apply mx-auto mt-4;
-  background-color: #8B0020;
+  background-color: var(--color-secondary);
+  color: var(--color-on-secondary);
+
+  &:disabled, &[disabled] {
+    background-color: var(--color-secondary-20);
+    color: var(--color-on-secondary-20);
+  }
 }
-button:disabled,
-button[disabled] {background-color: #1a1a1a}
