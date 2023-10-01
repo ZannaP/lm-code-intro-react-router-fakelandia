@@ -4,51 +4,66 @@ import ReasonDropdown from "./reason-dropdown"; // Import the InputSubject compo
 import ("./forms.scss");
 
 const ConfessForm: React.FC = () => {
-    const [inputValue, setInputValue] = useState('');
-    const [errorInput, setErrorInput] = useState<string>('');
-    const [selectValue, setSelectValue] = useState('');
-    const [errorSelect, setErrorSelect] = useState<string>('');
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        setInputValue(value);
-        setErrorInput('');
-    };
+    const [formData, setFormData] = useState({
+        inputValue: '',
+        selectValue: '',
+    });
+    const [errorInput, setErrorInput] = useState('');
+    const [errorSelect, setErrorSelect] = useState('');
+    const [isFormValid, setIsFormValid] = useState(false);
 
-    const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const value = e.target.value;
-        setSelectValue(value);
-        setErrorSelect('');
-    };
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
-        if (inputValue.trim() === '') {
-            setErrorInput('Subject cannot be empty');
-        } else {
-            console.log('Submitted:', inputValue);
-        }
-
-        if (selectValue.trim() === '') {
-            setErrorSelect('Please select a reason for contact');
-        } else {
-            console.log('Submitted:', selectValue);
-        }
-    };
-
-    return (
-        <div className={"the-container"}>
-            <form onSubmit={handleSubmit}>
-                <InputSubject value={inputValue} onChange={handleInputChange}/>
-                <div style={{color: 'red'}}>{errorInput}</div>
-                <ReasonDropdown reasons={['I just want to talk', 'Other reason']} selected={selectValue}
-                                onChange={handleSelectChange}/>
-                <div style={{color: 'red'}}>{errorSelect}</div>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    );
+const validateForm = () => {
+    // Implement your form validation logic here
+    const {inputValue, selectValue} = formData;
+    setIsFormValid(true);
+    if (inputValue.trim() === '') {
+        setErrorInput('Subject cannot be empty');
+        setIsFormValid(false)
+    }
+    if (selectValue.trim() === '') {
+        setErrorSelect('Please select a reason for contact');
+        setIsFormValid(false)
+    }
 };
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setFormData({
+        ...formData,
+        inputValue: value,
+    });
+    setErrorInput('');
+    validateForm();
+};
+
+const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setFormData({
+        ...formData,
+        selectValue: value,
+    });
+    setErrorSelect('');
+    validateForm();
+};
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Submitted:', formData.inputValue, formData.selectValue);
+};
+
+return (
+    <div className={"the-container"}>
+        <form onSubmit={handleSubmit}>
+            <InputSubject value={formData.inputValue} onChange={handleInputChange}/>
+            <div style={{color: 'red'}}>{errorInput}</div>
+            <ReasonDropdown reasons={['I just want to talk', 'Other reason']} selected={formData.selectValue}
+                            onChange={handleSelectChange}/>
+            <div style={{color: 'red'}}>{errorSelect}</div>
+            <button type="submit" disabled={!isFormValid}>Submit</button>
+        </form>
+    </div>
+);
+}
+;
 
 export default ConfessForm;

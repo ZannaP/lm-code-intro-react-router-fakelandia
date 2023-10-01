@@ -6,4 +6,7 @@ input, select, textarea {
 }
 button {
   @apply mx-auto mt-4;
+  background-color: #8B0020;
 }
+button:disabled,
+button[disabled] {background-color: #1a1a1a}
