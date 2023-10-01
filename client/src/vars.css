@@ -12,10 +12,11 @@
     --color-alert: #B00020;
     --color-alert-darker: #8B0020;
 
-    --heading-h1-size: clamp(3rem, 2.129rem + 3.871vw, 6rem);
-    --heading-h2-size: clamp(2.5rem, 1.7742rem + 3.2258vw, 5rem);
-    --heading-h3-size: clamp(2rem, 1.4194rem + 2.5806vw, 4rem);
-    --heading-h4-size: clamp(1.225rem, 1.1125rem + 0.4666666666666vw, 1.4625rem);
+    --heading-h1-size: clamp(2.5rem, 1.7742rem + 3.2258vw, 5rem);
+    --heading-h2-size: clamp(2rem, 1.4194rem + 2.5806vw, 4rem);
+    --heading-h3-size: clamp(1.225rem, 1.1125rem + 0.4666666666666vw, 1.4625rem);
+    --body-text-size: clamp(1rem, 0.9423rem + 0.2564vw, 1.25rem);
+
 
     --heading-h1-leading: 1.2333;
     --heading-h2-leading: 1.125;

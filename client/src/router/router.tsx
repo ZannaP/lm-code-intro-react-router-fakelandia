@@ -1,7 +1,7 @@
 import {Home} from '../pages/home';
 import {Misdemeanours} from '../pages/misdemeanours';
 import {ConfessToUs} from '../pages/confess-to-us';
-import {Page404} from '../pages/home copy';
+import {Page404} from '../pages/404page';
 import MainLayout from "../layouts/main_layouts";
 import {Routes, Route} from "react-router-dom";
 

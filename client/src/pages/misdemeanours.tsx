@@ -12,27 +12,30 @@ export const Misdemeanours = () => {
     }, [])
 
     return (
-        <div className={"the-container"}>
-            <div className={"grid grid-cols-4 gap-8 p-6"}>
-                <div>Citizen ID</div>
-                <div>Misdemeanour</div>
-                <div>Date</div>
-                <div>Punishment idea</div>
-            </div>
-            {misdemeanours?.map((misdemeanour) => {
-                const randomImageURL = `https://picsum.photos/150/100?random=${Math.random()}`;
+        <section>
+            <div className={"the-container"}>
+                <h1>Misdemeanours</h1>
+                <div className={"grid grid-cols-4 gap-8 p-6"}>
+                    <div>Citizen ID</div>
+                    <div>Misdemeanour</div>
+                    <div>Date</div>
+                    <div>Punishment idea</div>
+                </div>
+                {misdemeanours?.map((misdemeanour) => {
+                    const randomImageURL = `https://picsum.photos/150/100?random=${Math.random()}`;
 
-                return (
-                    <div key={misdemeanour?.citizenId} className={"grid grid-cols-4 gap-8 p-6"}>
-                        <div>{misdemeanour?.citizenId}</div>
-                        <div>{misdemeanour?.misdemeanour}</div>
-                        <div>{misdemeanour?.date}</div>
-                        <div>
-                            <img src={randomImageURL} alt={`${misdemeanour?.misdemeanour} punishment`}/>
+                    return (
+                        <div key={misdemeanour?.citizenId} className={"grid grid-cols-4 gap-8 p-6"}>
+                            <div>{misdemeanour?.citizenId}</div>
+                            <div>{misdemeanour?.misdemeanour}</div>
+                            <div>{misdemeanour?.date}</div>
+                            <div>
+                                <img src={randomImageURL} alt={`${misdemeanour?.misdemeanour} punishment`}/>
+                            </div>
                         </div>
-                    </div>
-                );
-            })}
-        </div>
+                    );
+                })}
+            </div>
+        </section>
     );
 }

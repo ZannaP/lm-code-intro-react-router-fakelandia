@@ -1,1 +1,16 @@
-export const ConfessToUs : React.FC = () => <>Confess To Us</>;
+export const ConfessToUs: React.FC = () => {
+    return (
+        <>
+            <section>
+                <div className={"the-container"}>
+                    <h1>Confess To Us</h1>
+                    <p>It's very difficult to catch people committing misdemeanours so we appreciate it when citizens
+                        confess
+                        to us directly.</p>
+                    <p>However, if you're just having a hard day and need to vetn then you're welcome to contact us here
+                        too. Up to you!</p>
+                </div>
+            </section>
+        </>
+    );
+}

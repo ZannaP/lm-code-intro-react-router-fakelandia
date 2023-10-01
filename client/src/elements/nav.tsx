@@ -28,12 +28,6 @@ const Nav: React.FC = () => {
                             Confess To Us
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to='/contacts' className={isNavLinkActive('/contacts') ? 'active' : ''}>
-                            Contacts
-                        </NavLink>
-                    </li>
-
             </ul>
         </nav>
 </>
