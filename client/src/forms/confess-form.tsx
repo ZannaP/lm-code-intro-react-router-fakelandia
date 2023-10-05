@@ -99,7 +99,6 @@ const ConfessForm: React.FC = () => {
             console.error('Catch error while submitting confession', error);
         }
     }
-
     useEffect(() => {
         setIsFormValid(validateForm());
     }, [formData]);
@@ -122,6 +121,5 @@ const ConfessForm: React.FC = () => {
         </div>
     );
 }
-
 
 export default ConfessForm;
