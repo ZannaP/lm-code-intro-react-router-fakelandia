@@ -10,6 +10,7 @@ const InputSubject: React.FC<InputSubjectProps> = ({ value, onChange }) => {
             <input
                 type="text"
                 id="inputField"
+                data-testid="inputField"
                 value={value}
                 onChange={onChange}
             />
