@@ -9,8 +9,7 @@ const ConfessionText: React.FC<ConfessionTextProps> = ({value, onChange}) => {
     return (
         <div>
             <label htmlFor="confessionText">Your message:</label>
-            <textarea id="confessionText" name="confessionText" onChange={onChange}>
-                {value}
+            <textarea id="confessionText" name="confessionText" onChange={onChange} value={value}>
             </textarea>
         </div>
     );

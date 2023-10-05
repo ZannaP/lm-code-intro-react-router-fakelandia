@@ -1,31 +1,34 @@
 import {useState, useEffect} from 'react';
 import InputSubject from './input-subject';
 import ReasonDropdown from "./reason-dropdown";
-import ConfessionText from "./confession-text"; // Import the InputSubject component
+import ConfessionText from "./confession-text";
+import {MISDEMEANOURS} from "../types/misdemeanours.types"; // Import the InputSubject component
 import ("./forms.scss");
 
 const ConfessForm: React.FC = () => {
 
     const [formData, setFormData] = useState({
-        inputValue: '',
-        selectValue: '',
-        confessionValue: '',
+        subject: '',
+        reason: '-', //MisdemeanourKind | JustTalk,
+        details: '',
     });
     const [errorInput, setErrorInput] = useState('');
     const [errorSelect, setErrorSelect] = useState('');
     const [errorConfession, setErrorConfession] = useState('');
     const [isFormValid, setIsFormValid] = useState(false);
+    const [formSubmittedMessage, setFormSubmittedMessage] = useState('');
+    const [buttonHidden, setButtonHidden] = useState(false);
 
     const validateForm = () => {
-        const {inputValue, selectValue, confessionValue} = formData;
+        const {subject, reason, details} = formData;
         let valid = true;
-        if (inputValue.trim() === '') {
+        if (subject.trim() === '') {
             valid = false;
         }
-        if (selectValue === '') {
+        if (reason === '-') {
             valid = false;
         }
-        if (confessionValue.trim().split(' ').length < 3) {
+        if (details.trim().split(' ').length < 3) {
             valid = false;
         }
         return valid;
@@ -34,7 +37,7 @@ const ConfessForm: React.FC = () => {
         const value = e.target.value;
         setFormData({
             ...formData,
-            inputValue: value,
+            subject: value,
         });
         setErrorInput('');
         if (value.trim() === '') {
@@ -47,10 +50,10 @@ const ConfessForm: React.FC = () => {
         const value = e.target.value;
         setFormData({
             ...formData,
-            selectValue: value,
+            reason: value,
         });
         setErrorSelect('');
-        if (value === '') {
+        if (value === '-') {
             setErrorSelect('Please select a reason for contact');
         }
         validateForm();
@@ -60,39 +63,61 @@ const ConfessForm: React.FC = () => {
         const value = e.target.value;
         setFormData({
             ...formData,
-            confessionValue: value,
+            details: value,
         });
         setErrorConfession('');
         if (value.trim().split(' ').length < 3) {
             setErrorConfession('Please write at least three words');
         }
-        console.log(value.split(' ').length)
         validateForm();
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('Submitted:', formData.inputValue, formData.selectValue);
-    };
+        try {
+            const response = await fetch("http://localhost:8080/api/confess", {
+                method: 'POST',
+                headers: {'Content-type': 'application/json'},
+                body: JSON.stringify(formData),
+            });
+            if (response.ok) {
+                setButtonHidden(true);
+                setFormData({
+                    subject: '',
+                    reason: '-', //MisdemeanourKind | JustTalk,
+                    details: '',
+                })
+                setFormSubmittedMessage("Confession received. Thank you.");
+                setTimeout(() => {
+                    setFormSubmittedMessage('');
+                    setButtonHidden(false);
+                }, 3500);
+            } else {
+                console.error('Failed to submit confession');
+            }
+        } catch (error) {
+            console.error('Catch error while submitting confession', error);
+        }
+    }
 
     useEffect(() => {
         setIsFormValid(validateForm());
-        console.log('Updated formData:', formData);
     }, [formData]);
-
     return (
         <div className={"the-container"}>
             <form onSubmit={handleSubmit}>
-                <InputSubject value={formData.inputValue} onChange={handleInputChange}/>
+                <InputSubject value={formData.subject} onChange={handleInputChange}/>
                 <div style={{color: 'red'}}>{errorInput}</div>
-                <ReasonDropdown reasons={['I just want to talk', 'Other reason']}
-                                selected={formData.selectValue}
+                <ReasonDropdown reasons={MISDEMEANOURS}
+                                selected={formData.reason}
                                 onChange={handleSelectChange}/>
                 <div style={{color: 'red'}}>{errorSelect}</div>
-                <ConfessionText value={formData.confessionValue} onChange={handleConfessionChange}/>                <div style={{color: 'red'}}>{errorSelect}</div>
+                <ConfessionText value={formData.details} onChange={handleConfessionChange}/>
+                <div style={{color: 'red'}}>{errorSelect}</div>
                 <div style={{color: 'red'}}>{errorConfession}</div>
 
-                <button type="submit" disabled={!isFormValid}>Submit</button>
+                <button type="submit" disabled={!isFormValid} className={buttonHidden ? 'hidden' : ''}>Submit</button>
+                <div className={"font-bold"}>{formSubmittedMessage}</div>
             </form>
         </div>
     );
