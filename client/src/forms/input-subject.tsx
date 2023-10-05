@@ -1,5 +1,5 @@
 import ("./forms.scss");
-interface InputSubjectProps {
+export interface InputSubjectProps {
     value: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
